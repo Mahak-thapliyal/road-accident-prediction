@@ -27,7 +27,7 @@ def pred(Day_of_week, Age_band_of_driver, Sex_of_driver, Educational_level, Vehi
 with zipfile.ZipFile("10 pipe (2).zip", 'r') as zip_ref:
     zip_ref.extractall(".")
 pipe=joblib.load("10 pipe.joblib")
-img=Image.open("C:\\Users\\HP\\Downloads\\road.jpg")
+img=Image.open("road.jpg")
 st.title('Accident Severity Prediction With Sklearn Pipeline...')
 # Display the image
 st.image(img, use_container_width=True)
