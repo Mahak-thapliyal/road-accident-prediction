@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pickle
+import zipfile
 from PIL import Image
 def pred(Day_of_week, Age_band_of_driver, Sex_of_driver, Educational_level, Vehicle_driver_relation,
          Driving_experience, Type_of_vehicle, Owner_of_vehicle, Service_year_of_vehicle,
@@ -23,7 +24,8 @@ def pred(Day_of_week, Age_band_of_driver, Sex_of_driver, Educational_level, Vehi
     # Assuming pipe is your trained model pipeline
     results = pipe.predict(features)
     return results
-
+with zipfile.ZipFile("C:\\Users\\HP\\10 pipe.zip",'r') as zip_ref:
+    zip_ref.extractall(".")
 pipe=pickle.load(open("C:\\Users\\HP\\10 pipe.pkl",'rb'))
 img=Image.open("C:\\Users\\HP\\Downloads\\road.jpg")
 st.title('Accident Severity Prediction With Sklearn Pipeline...')
